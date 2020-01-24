@@ -1,12 +1,10 @@
 FROM jenkins/jenkins:2.192
 
-USER root
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 
-RUN apt-get update && apt-get install -y curl
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
-RUN apt-get update
-
-RUN apt-get install nano
+COPY init.groovy.d/configure-tunnel-ip.groovy /usr/share/jenkins/ref/init.groovy.d/configure-tunnel-ip.groovy
 
 RUN wget -O dd-java-agent.jar 'https://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=com.datadoghq&a=dd-java-agent&v=LATEST'
 
