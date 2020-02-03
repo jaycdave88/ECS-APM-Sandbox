@@ -8,7 +8,7 @@
       ],
       "memory": 12288,
       "cpu": 0,
-      "image": "501124399386.dkr.ecr.us-east-1.amazonaws.com/devops/jenkins-server:5e802855",
+      "image": "jenkins/jenkins:2.192",
       "name": "jenkins-server",
       "mountPoints": [
         {
