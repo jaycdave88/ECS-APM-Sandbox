@@ -1,0 +1,42 @@
+{
+  "containerDefinitions": [
+    {
+      "entryPoint": [
+        "sh",
+        "-c",
+        "export DD_AGENT_HOST=$(curl http://169.254.169.254/latest/meta-data/local-ipv4); java -javaagent:/var/jenkins_home/datadog/dd-java-agent.jar /usr/share/jenkins/jenkins.war"
+      ],
+      "memory": 12288,
+      "cpu": 0,
+      "image": "501124399386.dkr.ecr.us-east-1.amazonaws.com/devops/jenkins-server:5e802855",
+      "name": "jenkins-server",
+      "mountPoints": [
+        {
+          "sourceVolume": "jenkins_home",
+          "containerPath": "/var/jenkins_home"
+        }
+      ],
+      "portMappings": [
+       {
+        "hostPort": 8080,
+        "protocol": "tcp",
+        "containerPort": 8080
+      },
+      {
+        "hostPort": 50000,
+        "protocol": "tcp",
+        "containerPort": 50000
+      }
+    ]}
+  ],
+  "volumes": [
+    {
+      "name" : "jenkins_home",
+      "host": {
+        "sourcePath": "/mnt/efs/jenkins_home/jenkins"
+      }
+    }
+  ],
+  "networkMode": "bridge",
+  "family": "Jenkins-Server"
+}
