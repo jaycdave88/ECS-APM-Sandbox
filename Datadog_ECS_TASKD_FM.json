@@ -4,12 +4,18 @@
       "entryPoint": [
         "sh",
         "-c",
-        "export DD_AGENT_HOST=$(curl http://169.254.169.254/latest/meta-data/local-ipv4); java -javaagent:/var/jenkins_home/datadog/dd-java-agent.jar /usr/share/jenkins/jenkins.war"
+        "export DD_AGENT_HOST=$(curl http://169.254.169.254/latest/meta-data/local-ipv4); java -javaagent:./dd-java-agent.jar -jar /usr/share/jenkins/jenkins.war"
       ],
       "memory": 12288,
       "cpu": 0,
-      "image": "jenkins/jenkins:2.192",
+      "image": "jaycdave88/fmesctest",
       "name": "jenkins-server",
+      "environment": [
+        {
+          "name": "DD_SERVICE_NAME",
+          "value": "jenkins-server"
+        }
+      ],
       "mountPoints": [
         {
           "sourceVolume": "jenkins_home",

@@ -1,10 +1,10 @@
 FROM jenkins/jenkins:2.192
 
-#COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 
-#RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
-#COPY init.groovy.d/configure-tunnel-ip.groovy /usr/share/jenkins/ref/init.groovy.d/configure-tunnel-ip.groovy
+COPY init.groovy.d/configure-tunnel-ip.groovy /usr/share/jenkins/ref/init.groovy.d/configure-tunnel-ip.groovy
 
 USER root 
 
