@@ -16,4 +16,6 @@ Setup in AWS ECS:
 ##### Troubleshooting: 
 
 > If unable to access Jenkins on EC2's public IP
+
+
  **Ensure your EC2's security group has access to all traffic.**
