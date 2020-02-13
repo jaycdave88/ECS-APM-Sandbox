@@ -18,7 +18,15 @@
         {
           "name": "DD_TRACE_ANALYTICS_ENABLED",
           "value": "true"
-        }
+        },
+        {
+          "name": "DD_TRACE_GLOBAL_TAGS",
+          "value": "env:jenkins"
+        },
+        {
+          "name": "DD_JMXFETCH_ENABLED",
+          "value": "true"
+        }        
       ],
       "mountPoints": [
         {

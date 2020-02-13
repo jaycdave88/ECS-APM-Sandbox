@@ -11,6 +11,11 @@
           "hostPort": 8126,
           "protocol": "tcp",
           "containerPort": 8126
+        },
+        {
+          "hostPort": 8125,
+          "protocol": "udp",
+          "containerPort": 8125
         }
       ],
       "command": null,
@@ -32,6 +37,14 @@
         {
           "name": "DD_SITE",
           "value": "datadoghq.com"
+        },
+        {
+          "name": "DD_TAGS",
+          "value": "env:jenkins"
+        },
+        {
+          "name": "DD_DOGSTATSD_NON_LOCAL_TRAFFIC",
+          "value": "true"
         }
       ],
       "resourceRequirements": null,
