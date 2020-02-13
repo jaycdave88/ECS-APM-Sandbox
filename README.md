@@ -12,10 +12,14 @@ Setup in AWS ECS:
    1. Create a Datadog agent daemon service. Instructions can be found here: https://docs.datadoghq.com/integrations/amazon_ecs/?tab=python#web-ui
          1.a. (Note. The `Datadog_agent_daemonService.json` can be used just update the existing API key)
    2. Create/modify Jenkins ECS task definition with `Datadog_ECS_TASKD_FM.json`
-   
+
+##### Outcome: 
+https://a.cl.ly/04uKGdXb
+
 ##### Troubleshooting: 
 
 > If unable to access Jenkins on EC2's public IP
 
 
  **Ensure your EC2's security group has access to all traffic.**
+
